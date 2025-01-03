@@ -46,11 +46,6 @@ extension AppDelegate {
     func addAppLaunchCalls(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         configureRouting(launchOptions)
         setNavigationBarAppearance()
-        #if DEBUG
-        if CommandLine.arguments.contains("--observeConstraintBrekingScript") {
-            //notifier.startListening()
-        }
-        #endif
     }
      
     // MARK: Appearance

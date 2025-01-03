@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NIWWRDCommon
 
 final class HomeBaseViewController: UITabBarController {
     
@@ -28,9 +29,24 @@ final class HomeBaseViewController: UITabBarController {
         super.viewDidLoad()
         self.delegate = self
         
+        self.addVcsToTabBar()
+        
     }
 }
 
 extension HomeBaseViewController: UITabBarControllerDelegate {
     
+}
+
+
+extension HomeBaseViewController {
+    func addVcsToTabBar() {
+        let firstVC = HomeViewController.loadFromStoryboard()
+        firstVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        let secondVC = UIViewController()
+        secondVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 1)
+        
+        // Add them to the tab bar
+        self.viewControllers = [firstVC, secondVC]
+    }
 }
